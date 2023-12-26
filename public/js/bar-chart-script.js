@@ -1,24 +1,42 @@
-import { isEmpty } from "../models/data-checking-query.js";
-import { aggregate_data_query } from "../models/aggregate-query.js";
+document.addEventListener("DOMContentLoaded", function () {
+	// Retrieve data from data-aggregate and property-aggregate divs
+	const dataAggregateDiv = document.getElementById("data-aggregate");
+	const propAggregateDiv = document.getElementById("property-aggregate");
 
-export const bar_chart_page = async (req, res) => {
-	try {
-		const check_model = await isEmpty();
+	const dataAggregate = JSON.parse(dataAggregateDiv.dataset.aggregate);
+	const propAggregate = JSON.parse(
+		propAggregateDiv.getAttribute("property-aggregate")
+	);
 
-		if (check_model.success && check_model.result) {
-			res.redirect("/import-data");
-		}
+	if (dataAggregate && dataAggregate.length > 0) {
+		const labels = dataAggregate.map((item) => item[Object.keys(item)[0]]);
+		const data = dataAggregate.map((item) => item[Object.keys(item)[1]]);
 
-		res.render("bar-chart-page", {
-			title: "Bar Chart",
-			layout: "layouts/main",
-			style: "bar-chart-style.css",
-			script: "bar-chart-script.js",
-			active: "bar-chart",
-			propAggregate: "null",
-			dataAggregate: "null",
+		const ctx = document.getElementById("myChart");
+
+		new Chart(ctx, {
+			type: "bar",
+			data: {
+				labels: labels,
+				datasets: [
+					{
+						label: propAggregate.colAggregate,
+						data: data,
+						borderWidth: 1,
+					},
+				],
+			},
+			options: {
+				scales: {
+					y: {
+						beginAtZero: true,
+					},
+				},
+			},
 		});
-	} catch (error) {
-		console.log(error);
+
+		// Set the table title
+		const tableTitle = document.querySelector(".table-title");
+		tableTitle.textContent = `${propAggregate.operator} of ${propAggregate.colAggregate} grouped by ${propAggregate.colGroupBy}`;
 	}
-};
+});
