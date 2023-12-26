@@ -5,7 +5,10 @@ import {
 	import_data,
 } from "./controllers/import-data-controller.js";
 import { table_page } from "./controllers/table-controller.js";
-import { bar_chart_page } from "./controllers/bar-chart-controller.js";
+import {
+	bar_chart_page,
+	aggregate_data_bar,
+} from "./controllers/bar-chart-controller.js";
 import { scatter_plot_page } from "./controllers/scatter-plot-controller.js";
 import { dashboard_page } from "./controllers/dashboard-controller.js";
 
@@ -21,5 +24,6 @@ router.get("/scatter-plot", scatter_plot_page);
 
 // Post route
 router.post("/import-data", import_data);
+router.post("/bar-chart", aggregate_data_bar);
 
 export default router;
