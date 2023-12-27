@@ -1,0 +1,115 @@
+<div class="aggregate-container">
+	<div class="table-view">
+		<div class="card-header">
+			<h3 class="table-title">The Scatter Plot will be shown here</h3>
+		</div>
+		<canvas id="myChart"></canvas>
+	</div>
+	<div class="table-input">
+		<form id="aggregateForm" action="/scatter-plot" method="post">
+			<div class="field">
+				<label for="colX">X-Axis</label>
+				<select id="colX" name="colX">
+					<option value="" disabled selected>Select column for x-values</option>
+					<option value="Year_Birth">Year Birth</option>
+					<option value="Response">Response</option>
+					<option value="Complain">Complain</option>
+					<option value="AcceptedCmp1">Accepted Complain 1st</option>
+					<option value="AcceptedCmp2">Accepted Complain 2nd</option>
+					<option value="AcceptedCmp3">Accepted Complain 3rd</option>
+					<option value="AcceptedCmp4">Accepted Complain 4th</option>
+					<option value="AcceptedCmp5">Accepted Complain 5th</option>
+					<option value="Income">Income</option>
+					<option value="Kidhome">Number of children in household</option>
+					<option value="Teenhome">Number of teenagers in household</option>
+					<option value="Recency">Recency</option>
+					<option value="MntWines">Amount spent on wine in last 2 years</option>
+					<option value="MntFruits">
+						Amount spent on fruits in last 2 years
+					</option>
+					<option value="MntMeatProducts">
+						Amount spent on meat in last 2 years
+					</option>
+					<option value="MntFishProducts">
+						Amount spent on fish in last 2 years
+					</option>
+					<option value="MntSweetProducts">
+						Amount spent on sweets in last 2 years
+					</option>
+					<option value="MntGoldProds">
+						Amount spent on gold in last 2 years
+					</option>
+					<option value="NumDealsPurchases">
+						Number of purchases made with a discount
+					</option>
+					<option value="NumWebPurchases">
+						Number of purchases made through the company’s website
+					</option>
+					<option value="NumWebVisitsMonth">
+						Number of visits to company’s website in the last month
+					</option>
+					<option value="NumCatalogPurchases">
+						Number of purchases made using a catalogue
+					</option>
+					<option value="NumStorePurchases">
+						Number of purchases made directly in stores
+					</option>
+				</select>
+			</div>
+			<div class="field">
+				<label for="colY">Y-Axis</label>
+				<select id="colY" name="colY">
+					<option value="" disabled selected>Select column for y-values</option>
+					<option value="Year_Birth">Year Birth</option>
+					<option value="Marital_Status">Marital Status</option>
+					<option value="Response">Response</option>
+					<option value="Complain">Complain</option>
+					<option value="AcceptedCmp1">Accepted Complain 1st</option>
+					<option value="AcceptedCmp2">Accepted Complain 2nd</option>
+					<option value="AcceptedCmp3">Accepted Complain 3rd</option>
+					<option value="AcceptedCmp4">Accepted Complain 4th</option>
+					<option value="AcceptedCmp5">Accepted Complain 5th</option>
+					<option value="Income">Income</option>
+					<option value="Kidhome">Number of children in household</option>
+					<option value="Teenhome">Number of teenagers in household</option>
+					<option value="Recency">Recency</option>
+					<option value="MntWines">Amount spent on wine in last 2 years</option>
+					<option value="MntFruits">
+						Amount spent on fruits in last 2 years
+					</option>
+					<option value="MntMeatProducts">
+						Amount spent on meat in last 2 years
+					</option>
+					<option value="MntFishProducts">
+						Amount spent on fish in last 2 years
+					</option>
+					<option value="MntSweetProducts">
+						Amount spent on sweets in last 2 years
+					</option>
+					<option value="MntGoldProds">
+						Amount spent on gold in last 2 years
+					</option>
+					<option value="NumDealsPurchases">
+						Number of purchases made with a discount
+					</option>
+					<option value="NumWebPurchases">
+						Number of purchases made through the company’s website
+					</option>
+					<option value="NumWebVisitsMonth">
+						Number of visits to company’s website in the last month
+					</option>
+					<option value="NumCatalogPurchases">
+						Number of purchases made using a catalogue
+					</option>
+					<option value="NumStorePurchases">
+						Number of purchases made directly in stores
+					</option>
+				</select>
+			</div>
+			<button type="submit">Show result</button>
+		</form>
+	</div>
+</div>
+<div id="data-aggregate" data-aggregate="<%= dataAggregate %>"></div>
+<div id="property-aggregate" property-aggregate="<%= propAggregate %>"></div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
