@@ -1,0 +1,35 @@
+<div class="dashboard-container">
+	<div class="table-container">
+		<div class="card-header">
+			<h3 class="table-title">Tabel</h3>
+			<a href="/table" class="btn-redirect">View All</a>
+		</div>
+		<table>
+			<thead id="tableHead">
+				<!-- Table header will be populated here -->
+			</thead>
+			<tbody id="tableBody">
+
+			</tbody>
+		</table>
+	</div>
+	<div class="chart-container">
+		<div class="bar-container">
+			<div class="card-header">
+				<h3 class="table-title">Bar Chart</h3>
+				<a href="/bar-chart" class="btn-redirect">View All</a>
+			</div>
+			<canvas id="myBarChart"></canvas>
+		</div>
+		<div class="scatter-container">
+			<div class="card-header">
+				<h3 class="table-title">Scatter Plot</h3>
+				<a href="/scatter-plot" class="btn-redirect">View All</a>
+			</div>
+			<canvas id="myScatterPlot"></canvas>
+		</div>
+	</div>
+</div>
+<div id="data-tablebar" data-tablebar="<%= tablebarData %>"></div>
+<div id="data-scatter" data-scatter="<%= scatterData %>"></div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
